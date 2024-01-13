@@ -21,6 +21,29 @@ void sortArray(vector<int> &v){
     }
 }
 
+// Funciton to sort the array using two pointers
+void sortArrayUsingPointers(vector<int> &v){
+
+    int i = 0;
+    int j = v.size()-1;
+
+    while(i < j){
+        if(v[i] == 0){
+            i++;
+        }else{
+            if(v[j] == 1){
+                j--;
+            }else{
+                int temp = v[i];
+                v[i] = v[j];
+                v[j] = temp;
+                i++;
+                j--;
+            }
+        }
+    }
+}
+
 int main(){
     // Sort an array consisting of only 0s and 1s
     
@@ -35,7 +58,9 @@ int main(){
         v.push_back(ele);
     }
 
-    sortArray(v);
+    // sortArray(v);
+    sortArrayUsingPointers(v);
+
 
     for(int i = 0; i < n; i++){
         cout<<v[i];
